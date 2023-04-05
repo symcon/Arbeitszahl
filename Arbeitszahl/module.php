@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-    class Jahresarbeitszahl extends IPSModule
+    class Arbeitszahl extends IPSModule
     {
         public function Create()
         {

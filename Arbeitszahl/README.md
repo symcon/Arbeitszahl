@@ -1,5 +1,5 @@
-# Jahresarbeitszahl
-Der Wirkungsgrad für die vergangenen 365 Tage wird berechnet.
+# Arbeitszahl
+Der Wirkungsgrad wird berechnet.
 
 ### Inhaltsverzeichnis
 
@@ -13,7 +13,8 @@ Der Wirkungsgrad für die vergangenen 365 Tage wird berechnet.
 
 ### 1. Funktionsumfang
 
-*
+* Der Wirkungsgrad für die vergangenen 365 Tage
+* Der Wirkungsgrad für die vergangenen 30 Tage
 
 ### 2. Voraussetzungen
 
