@@ -13,9 +13,9 @@ declare(strict_types=1);
             $this->RegisterVariableFloat('efficiencyJAZ', 'Efficiency year', '', 0);
             $this->RegisterVariableFloat('efficiencyMAZ', 'Efficiency month', '', 0);
             $this->EnableAction('efficiencyJAZ');
-			$this->EnableAction('efficiencyMAZ');
+            $this->EnableAction('efficiencyMAZ');
 
-            $this->RegisterTimer('ARZ_Calculation', (strtotime('tomorrow') - time())*1000, 'ARZ_Calculation($_IPS[\'TARGET\']);');
+            $this->RegisterTimer('ARZ_Calculation', (strtotime('tomorrow') - time()) * 1000, 'ARZ_Calculation($_IPS[\'TARGET\']);');
         }
 
         public function Destroy()
@@ -29,7 +29,7 @@ declare(strict_types=1);
             //Never delete this line!
             parent::ApplyChanges();
 
-			$thermalID = $this->ReadPropertyInteger('thermalEnergieID');
+            $thermalID = $this->ReadPropertyInteger('thermalEnergieID');
             $electricID = $this->ReadPropertyInteger('electricEnergieID');
 
             if (!IPS_VariableExists($thermalID) && !IPS_VariableExists($electricID)) {
@@ -52,9 +52,9 @@ declare(strict_types=1);
             $startTime = strtotime('-1 year', $endTime);
 
             $year = $this->getLoggedValues($startTime, $endTime, $thermalID, $electricID);
-			if($this->GetStatus() >200){
-				return;
-			}
+            if ($this->GetStatus() > 200) {
+                return;
+            }
             $thermalYear = $year[0];
             $electricYear = $year[1];
             $thermalSum = array_sum(array_column($thermalYear, 'Avg'));
@@ -68,7 +68,7 @@ declare(strict_types=1);
             } else {
                 $this->SendDebug('ERROR', 'Sum of Year Electrical Energy is 0', 0);
                 $this->SetStatus(202);
-				return;
+                return;
             }
 
             //Get the timestamps last midnight and 1 month ago
@@ -76,9 +76,9 @@ declare(strict_types=1);
             $startTime = strtotime('-1 month', $endTime);
 
             $month = $this->getLoggedValues($startTime, $endTime, $thermalID, $electricID);
-			if($this->GetStatus() >200){
-				return;
-			}
+            if ($this->GetStatus() > 200) {
+                return;
+            }
             $thermalMonth = $month[0];
             $electricMonth = $month[1];
             $thermalSum = array_sum(array_column($thermalMonth, 'Avg'));
@@ -92,15 +92,15 @@ declare(strict_types=1);
             } else {
                 $this->SendDebug('ERROR', 'Sum of Month Electrical Energy is 0', 0);
                 $this->SetStatus(202);
-				return;
+                return;
             }
 
-			$this->SetTimerInterval('ARZ_Calculation',(strtotime('tomorrow') - time())*1000);
+            $this->SetTimerInterval('ARZ_Calculation', (strtotime('tomorrow') - time()) * 1000);
         }
 
         private function getLoggedValues(int $startTime, int $endTime, int $thermalID, int $electricID)
         {
-			$archiveID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
+            $archiveID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 
             $thermal = AC_GetAggregatedValues($archiveID, $thermalID, 1/*Daily Aggregation */, $startTime, $endTime, 0);
             $electric = AC_GetAggregatedValues($archiveID, $electricID, 1/*Daily Aggregation */, $startTime, $endTime, 0);
