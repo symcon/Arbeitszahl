@@ -1,5 +1,39 @@
 {
-    "elements": [],
-    "actions": [],
-    "status": []
+    "elements": [
+        {
+            "type": "SelectVariable",
+            "name": "thermalEnergieID",
+            "caption": "Thermal energy (kWh)",
+            "requireLogging": 4,
+            "validVariableTypes": [
+                1,
+                2
+            ]
+        },
+        {
+            "type": "SelectVariable",
+            "name": "electricEnergieID",
+            "caption": "Electric energy (kWh)",
+            "requireLogging": 4,
+            "validVariableTypes": [
+                1,
+                2
+            ]
+        }
+    ],
+    "actions": [
+        
+    ],
+    "status": [
+        {
+            "code": 201,
+            "icon": "error",
+            "caption": "No logged values available"
+        },
+        {
+            "code": 202,
+            "icon": "error",
+            "caption": "The sum of electrical energy is 0"
+        }
+    ]
 }
