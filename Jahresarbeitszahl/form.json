@@ -21,9 +21,7 @@
             ]
         }
     ],
-    "actions": [
-        
-    ],
+    "actions": [],
     "status": [
         {
             "code": 201,
