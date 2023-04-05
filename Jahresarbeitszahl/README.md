@@ -1,5 +1,5 @@
 # Jahresarbeitszahl
-Beschreibung des Moduls.
+Der Wirkungsgrad für die vergangenen 365 Tage wird berechnet.
 
 ### Inhaltsverzeichnis
 
@@ -17,7 +17,7 @@ Beschreibung des Moduls.
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 6.0
+- IP-Symcon ab Version 6.3
 
 ### 3. Software-Installation
 
@@ -31,12 +31,12 @@ Beschreibung des Moduls.
 
 __Konfigurationsseite__:
 
-Name     | Beschreibung
--------- | ------------------
-         |
-         |
+Name                      | Beschreibung
+------------------------- | ------------------
+Wärmeenergie (kWh)        | Variable, welche als Zähler geloggt ist 
+Elektrische Energie (kWh) | Variable, welche als Zähler geloggt ist
 
-### 5. Statusvariablen und Profile
+### 5. Statusvariablen
 
 Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
 
@@ -44,24 +44,13 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 Name   | Typ     | Beschreibung
 ------ | ------- | ------------
-       |         |
-       |         |
-
-#### Profile
-
-Name   | Typ
------- | -------
-       |
-       |
-
-### 6. WebFront
-
-Die Funktionalität, die das Modul im WebFront bietet.
+Wirkungsgrad | Float |
+Ereignis | zyklisches Event | Event, damit der Wirkungsgrad um Mitternacht berechnet wird
 
 ### 7. PHP-Befehlsreferenz
 
-`boolean JAZ_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
+`boolean JAZ_Calculation(integer $InstanzID);`
+Berechnung des Wirkungsgrades
 
 Beispiel:
-`JAZ_BeispielFunktion(12345);`
+`JAZ_Calculation(12345);`
