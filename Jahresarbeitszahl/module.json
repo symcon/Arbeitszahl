@@ -1,0 +1,12 @@
+{
+    "id": "{6DC06AC0-96C0-027F-FAAD-9065A6D16FD3}",
+    "name": "Jahresarbeitszahl",
+    "type": 3,
+    "vendor": "",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "JAZ",
+    "url": ""
+}
