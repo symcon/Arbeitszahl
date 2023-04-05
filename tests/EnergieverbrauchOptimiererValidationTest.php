@@ -10,6 +10,6 @@ class EnergieverbrauchOptimiererValidationTest extends TestCaseSymconValidation
     }
     public function testValidateJahresarbeitszahlModule(): void
     {
-        $this->validateModule(__DIR__ . '/../EnergieverbrauchOptimierer');
+        $this->validateModule(__DIR__ . '/../Jahresarbeitszahl');
     }
 }
