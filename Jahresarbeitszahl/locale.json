@@ -2,8 +2,9 @@
     "translations": {
         "de": {
             "Thermal energy (kWh)": "Wärmeenergie (kWh)",
-            "Electric energy (kWh)": "elektrische Energie (kWh)",
-            "Efficiency": "Wirkungsgrad"
+            "Electric energy (kWh)": "Elektrische Energie (kWh)",
+            "Efficiency year": "Wirkungsgrad Jahr",
+            "Efficiency month": "Wirkungsgrad Monat"
         }
     }
 }
