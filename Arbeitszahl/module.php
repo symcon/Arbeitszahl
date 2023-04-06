@@ -10,8 +10,8 @@ declare(strict_types=1);
 
             $this->RegisterPropertyInteger('ThermalEnergieID', 0);
             $this->RegisterPropertyInteger('ElectricEnergieID', 0);
-            $this->RegisterVariableFloat('EfficiencyMAZ', 'SPF Month', '', 0);
-            $this->RegisterVariableFloat('EfficiencyJAZ', 'SPF Year', '', 0);
+            $this->RegisterVariableFloat('EfficiencyMAZ', $this->Translate('SPF Month'), '', 0);
+            $this->RegisterVariableFloat('EfficiencyJAZ', $this->Translate('SPF Year'), '', 0);
 
             $this->RegisterTimer('ARZ_Calculation', (strtotime('tomorrow') - time()) * 1000, 'ARZ_Calculation($_IPS[\'TARGET\']);');
         }
