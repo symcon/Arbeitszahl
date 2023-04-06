@@ -3,8 +3,8 @@
         "de": {
             "Thermal energy (kWh)": "Wärmeenergie (kWh)",
             "Electric energy (kWh)": "Elektrische Energie (kWh)",
-            "Efficiency year": "Wirkungsgrad Jahr",
-            "Efficiency month": "Wirkungsgrad Monat"
+            "SPF Year": "JAZ",
+            "SPF Month": "MAZ"
         }
     }
 }

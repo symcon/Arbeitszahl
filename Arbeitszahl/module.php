@@ -8,12 +8,10 @@ declare(strict_types=1);
             //Never delete this line!
             parent::Create();
 
-            $this->RegisterPropertyInteger('thermalEnergieID', 0);
-            $this->RegisterPropertyInteger('electricEnergieID', 0);
-            $this->RegisterVariableFloat('efficiencyJAZ', 'Efficiency year', '', 0);
-            $this->RegisterVariableFloat('efficiencyMAZ', 'Efficiency month', '', 0);
-            $this->EnableAction('efficiencyJAZ');
-            $this->EnableAction('efficiencyMAZ');
+            $this->RegisterPropertyInteger('ThermalEnergieID', 0);
+            $this->RegisterPropertyInteger('ElectricEnergieID', 0);
+            $this->RegisterVariableFloat('EfficiencyMAZ', 'SPF Month', '', 0);
+            $this->RegisterVariableFloat('EfficiencyJAZ', 'SPF Year', '', 0);
 
             $this->RegisterTimer('ARZ_Calculation', (strtotime('tomorrow') - time()) * 1000, 'ARZ_Calculation($_IPS[\'TARGET\']);');
         }
@@ -29,10 +27,10 @@ declare(strict_types=1);
             //Never delete this line!
             parent::ApplyChanges();
 
-            $thermalID = $this->ReadPropertyInteger('thermalEnergieID');
-            $electricID = $this->ReadPropertyInteger('electricEnergieID');
+            $thermalID = $this->ReadPropertyInteger('ThermalEnergieID');
+            $electricID = $this->ReadPropertyInteger('ElectricEnergieID');
 
-            if (!IPS_VariableExists($thermalID) && !IPS_VariableExists($electricID)) {
+            if (!IPS_VariableExists($thermalID) || !IPS_VariableExists($electricID)) {
                 return;
             }
             $this->Calculation();
@@ -40,10 +38,10 @@ declare(strict_types=1);
 
         public function Calculation()
         {
-            $thermalID = $this->ReadPropertyInteger('thermalEnergieID');
-            $electricID = $this->ReadPropertyInteger('electricEnergieID');
+            $thermalID = $this->ReadPropertyInteger('ThermalEnergieID');
+            $electricID = $this->ReadPropertyInteger('ElectricEnergieID');
 
-            if (!IPS_VariableExists($thermalID) && !IPS_VariableExists($electricID)) {
+            if (!IPS_VariableExists($thermalID) || !IPS_VariableExists($electricID)) {
                 return;
             }
 
@@ -51,7 +49,7 @@ declare(strict_types=1);
             $endTime = strtotime('midnight -1 sec');
             $startTime = strtotime('-1 year', $endTime);
 
-            $year = $this->getLoggedValues($startTime, $endTime, $thermalID, $electricID);
+            $year = $this->getAggregatedValuesTimeBased($startTime, $endTime, $thermalID, $electricID);
             if ($this->GetStatus() > 200) {
                 return;
             }
@@ -62,8 +60,8 @@ declare(strict_types=1);
 
             if ($electricSum != 0) {
                 $efficiency = $thermalSum / $electricSum;
-                //$this->SendDebug('Success', $efficiency, 0);
-                $this->SetValue('efficiencyJAZ', $efficiency);
+                $this->SendDebug('Success Efficiency Year', $efficiency, 0);
+                $this->SetValue('EfficiencyJAZ', $efficiency);
                 $this->SetStatus(102);
             } else {
                 $this->SendDebug('ERROR', 'Sum of Year Electrical Energy is 0', 0);
@@ -75,7 +73,7 @@ declare(strict_types=1);
             $endTime = strtotime('midnight -1 sec');
             $startTime = strtotime('-1 month', $endTime);
 
-            $month = $this->getLoggedValues($startTime, $endTime, $thermalID, $electricID);
+            $month = $this->getAggregatedValuesTimeBased($startTime, $endTime, $thermalID, $electricID);
             if ($this->GetStatus() > 200) {
                 return;
             }
@@ -86,8 +84,8 @@ declare(strict_types=1);
 
             if ($electricSum != 0) {
                 $efficiency = $thermalSum / $electricSum;
-                //$this->SendDebug('Success', print_r($efficiency), 0);
-                $this->SetValue('efficiencyMAZ', $efficiency);
+                $this->SendDebug('Success Efficiency Month', $efficiency, 0);
+                $this->SetValue('EfficiencyMAZ', $efficiency);
                 $this->SetStatus(102);
             } else {
                 $this->SendDebug('ERROR', 'Sum of Month Electrical Energy is 0', 0);
@@ -98,7 +96,7 @@ declare(strict_types=1);
             $this->SetTimerInterval('ARZ_Calculation', (strtotime('tomorrow') - time()) * 1000);
         }
 
-        private function getLoggedValues(int $startTime, int $endTime, int $thermalID, int $electricID)
+        private function getAggregatedValuesTimeBased(int $startTime, int $endTime, int $thermalID, int $electricID)
         {
             $archiveID = IPS_GetInstanceListByModuleID('{43192F0B-135B-4CE7-A0A7-1475603F3060}')[0];
 

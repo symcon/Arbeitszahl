@@ -1,6 +1,6 @@
-# Jahresarbeitszahl
+# Arbeitszahl
 
-Folgende Module beinhaltet das Jahresarbeitszahl Repository:
+Folgende Module beinhaltet das Arbeitszahl Repository:
 
-- __Jahresarbeitszahl__ ([Dokumentation](Jahresarbeitszahl))  
-	Der Wirkungsgrad wird für das vergangene Jahr ausgerechnet.
+- __Arbeitszahl__ ([Dokumentation](Arbeitszahl))  
+	Der Wirkungsgrad wird für das vergangene Jahr und den vergangenen Monat ausgerechnet.

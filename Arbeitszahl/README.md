@@ -43,15 +43,18 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 #### Statusvariablen
 
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-Wirkungsgrad | Float |
-Ereignis | zyklisches Event | Event, damit der Wirkungsgrad um Mitternacht berechnet wird
+Name         | Typ              | Beschreibung
+------------ | ---------------- | ------------
+MAZ          | Float            | Steht für die Monatsarbeitszahl
+JAZ          | Float            | Steht für die Jahresarbeitszahl
+Ereignis     | zyklisches Event | Event, damit der Wirkungsgrad um Mitternacht berechnet wird
+
+<!--Im englischen ist die Anzeige SPF Month und SPF Year. SPF steht für sesional performance factor---> 
 
 ### 7. PHP-Befehlsreferenz
 
-`boolean JAZ_Calculation(integer $InstanzID);`
+`boolean ARZ_Calculation(integer $InstanzID);`
 Berechnung des Wirkungsgrades
 
 Beispiel:
-`JAZ_Calculation(12345);`
+`ARZ_Calculation(12345);`

@@ -2,7 +2,7 @@
     "elements": [
         {
             "type": "SelectVariable",
-            "name": "electricEnergieID",
+            "name": "ElectricEnergieID",
             "caption": "Electric energy (kWh)",
             "requireLogging": 4,
             "validVariableTypes": [
@@ -12,7 +12,7 @@
         },
         {
             "type": "SelectVariable",
-            "name": "thermalEnergieID",
+            "name": "ThermalEnergieID",
             "caption": "Thermal energy (kWh)",
             "requireLogging": 4,
             "validVariableTypes": [
