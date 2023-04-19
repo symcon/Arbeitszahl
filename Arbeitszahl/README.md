@@ -49,7 +49,7 @@ MAZ          | Float            | Steht für die Monatsarbeitszahl
 JAZ          | Float            | Steht für die Jahresarbeitszahl
 Ereignis     | zyklisches Event | Event, damit der Wirkungsgrad um Mitternacht berechnet wird
 
-<!--Im englischen ist die Anzeige SPF Month und SPF Year. SPF steht für sesional performance factor---> 
+<!--Im englischen ist die Anzeige SPF Month und SPF Year. SPF steht für sessional performance factor---> 
 
 ### 7. PHP-Befehlsreferenz
 
