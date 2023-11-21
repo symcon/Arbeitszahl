@@ -6,7 +6,7 @@
   </php>
   <source>
     <include>
-      <directory suffix=".php">../EnergieverbrauchOptimierer</directory>
+      <directory suffix=".php">../Arbeitszahl</directory>
     </include>
   </source>
 </phpunit>
