@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-class Arbeitszahl extends IPSModule
+class WorkingEfficiency extends IPSModule
 {
     public function Create()
     {

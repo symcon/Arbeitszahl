@@ -1,6 +1,6 @@
 {
     "id": "{6DC06AC0-96C0-027F-FAAD-9065A6D16FD3}",
-    "name": "Arbeitszahl",
+    "name": "Working Efficiency",
     "type": 3,
     "vendor": "",
     "aliases": [],
@@ -8,5 +8,5 @@
     "childRequirements": [],
     "implemented": [],
     "prefix": "ARZ",
-    "url": "https://www.symcon.de/de/"
+    "url": "https://www.symcon.de/en/service/documentation/module-reference/work-efficiency/"
 }

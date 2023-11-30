@@ -1,0 +1,12 @@
+{
+    "translations": {
+        "de": {
+            "Thermal energy (kWh)": "Wärmeenergie (kWh)",
+            "Electric energy (kWh)": "Elektrische Energie (kWh)",
+            "SPF Year": "JAZ",
+            "SPF Month": "MAZ",
+            "https://www.symcon.de/en/service/documentation/module-reference/work-efficiency/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/arbeitszahl/",
+            "WorkingEfficiency": "Arbeitszahl"
+        }
+    }
+}
