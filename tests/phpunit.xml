@@ -6,7 +6,7 @@
   </php>
   <source>
     <include>
-      <directory suffix=".php">../Arbeitszahl</directory>
+      <directory suffix=".php">../WorkingEfficiency</directory>
     </include>
   </source>
 </phpunit>

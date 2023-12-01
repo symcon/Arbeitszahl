@@ -8,8 +8,8 @@ class ArbeitszahlValidationTest extends TestCaseSymconValidation
     {
         $this->validateLibrary(__DIR__ . '/..');
     }
-    public function testValidateArbeitszahlModule(): void
+    public function testValidateWorkingEfficiencyModule(): void
     {
-        $this->validateModule(__DIR__ . '/../Arbeitszahl');
+        $this->validateModule(__DIR__ . '/../WorkingEfficiency');
     }
 }
